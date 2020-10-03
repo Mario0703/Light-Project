@@ -1,0 +1,35 @@
+
+const int lightSensor = A0;
+
+void setup() {
+
+  for(int i = 2; i<9; i++)
+  {
+    pinMode(i,OUTPUT);
+  }
+
+  
+}
+
+void loop() {
+
+  int LightValue = analogRead(lightSensor);
+
+  //map Values from light sensor
+  int val = map(LightValue,0,400,0,7);
+
+  //turn LED on
+  for(int i = 2; i <9 ; i++)
+  {
+
+      if (val < i)
+        {
+     digitalWrite(i,HIGH);
+        }
+        
+     else
+      {
+      digitalWrite(i,LOW);
+      }
+ }
+}
